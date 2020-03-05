@@ -17,17 +17,12 @@ provider "azurerm" {
     tenant_id       = var.tenant_id
 }
 
-resource "azurerm_resource_group" "dns_resource_group" {
-    name        = "examplerg"
-    location    = "West Europe"
-}
-
 module "dns_zone" {
     source = "../../terraform_azurerm_dns_zone"
 
-    resource_group_name = azurerm_resource_group.dns_resource_group.name
-    location            = azurerm_resource_group.dns_resource_group.location
-    dns_prefix          = "exampledns"
-    ip_address_name     = "Nginx"
-    root_domain         = "example.cloud"
+    resource_group_name = "masterthesisrg"
+    location            = "West Europe"
+    dns_prefix          = "masterthesisdns"
+    ip_address_name     = "IPAddressForMasterthesis"
+    root_domain         = "masterthesis.online"
 }
