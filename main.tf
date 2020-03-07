@@ -24,3 +24,11 @@ resource "azurerm_dns_a_record" "wildcard_subdomain" {
     ttl                 = 300
     records             = [azurerm_public_ip.public_ip.ip_address]
 }
+
+resource "azurerm_dns_a_record" "wildcard_subdomain" {
+    name                = "@"
+    zone_name           = azurerm_dns_zone.root.name
+    resource_group_name = azurerm_resource_group.dns_resource_group.name
+    ttl                 = 300
+    records             = [azurerm_public_ip.public_ip.ip_address]
+}
