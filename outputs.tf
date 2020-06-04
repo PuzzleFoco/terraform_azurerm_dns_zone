@@ -13,3 +13,7 @@ output "dns_resource_group" {
 output "root_domain" {
   value = var.root_domain
 }
+
+output "nameserver" {
+  value = azurerm_dns_zone.root.name_servers
+}
