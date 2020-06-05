@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "public_ip" {
     location            = azurerm_resource_group.dns_resource_group.location
     resource_group_name = azurerm_resource_group.dns_resource_group.name
     allocation_method   = "Static"
-    sku                 = "Standard"
+    sku                 = "Basic"
     domain_name_label   = var.dns_prefix
 }
 
